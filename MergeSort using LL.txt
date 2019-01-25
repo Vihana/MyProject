@@ -1,0 +1,99 @@
+
+
+
+/* split the nodes of the given list into front and back halves,
+     and return the two lists using the reference parameters.*/
+struct node* getMiddle(struct node* head)
+   {
+         // Your code here.
+        if(head == NULL)
+            return NULL;
+        else{
+             struct node* p = head;
+             while(head->next != NULL && head->next->next != NULL){
+                 p = p->next;
+                 head = head->next->next;
+             }
+             if(head->next == NULL)
+                return p;
+            else
+                return p;
+        }
+   }
+void splitList(struct node* source, struct node** frontRef, struct node** backRef)
+{
+    // Code here
+    struct node* mid = getMiddle(source);
+    struct node* temp = mid->next;
+    mid->next =NULL;
+    (*frontRef) = source;
+    (*backRef) = temp;
+}
+
+// merges two sorted list into one big list
+struct node* mergeList(struct node* a, struct node* b)
+{
+    // Code here
+    if(a == NULL)
+        return b;
+    if(b == NULL)
+        return a;
+    if(a->data < b->data){
+        a->next = mergeList(a->next,b);
+        return a;
+    }
+    else{
+        b->next = mergeList(a,b->next);
+        return b;
+    }
+        
+}
+
+
+/* split the nodes of the given list into front and back halves,
+     and return the two lists using the reference parameters.*/
+struct node* getMiddle(struct node* head)
+   {
+         // Your code here.
+        if(head == NULL)
+            return NULL;
+        else{
+             struct node* p = head;
+             while(head->next != NULL && head->next->next != NULL){
+                 p = p->next;
+                 head = head->next->next;
+             }
+             if(head->next == NULL)
+                return p;
+            else
+                return p;
+        }
+   }
+void splitList(struct node* source, struct node** frontRef, struct node** backRef)
+{
+    // Code here
+    struct node* mid = getMiddle(source);
+    struct node* temp = mid->next;
+    mid->next =NULL;
+    (*frontRef) = source;
+    (*backRef) = temp;
+}
+
+// merges two sorted list into one big list
+struct node* mergeList(struct node* a, struct node* b)
+{
+    // Code here
+    if(a == NULL)
+        return b;
+    if(b == NULL)
+        return a;
+    if(a->data < b->data){
+        a->next = mergeList(a->next,b);
+        return a;
+    }
+    else{
+        b->next = mergeList(a,b->next);
+        return b;
+    }
+        
+}
